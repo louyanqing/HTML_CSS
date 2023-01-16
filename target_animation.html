@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> 点击按钮 动画显示图片 </title>
+		<meta charset="utf-8"/>
+			<meta charset="utf-8"/>
+		<style>
+			a{
+				display:inline-block;
+				width:50px;
+				height:20px;
+				background-color:#666;
+				color:#fff;
+				margin-right:10px;
+			}
+			#d1{
+				width:350px;
+				height:350px;
+				/*border:1px solid #ccc;*/
+				margin-top:10px;
+				position:relative;
+			}
+			#img1,#img2,#img3,#img4{
+				display:none;	
+				position:absolute;
+				top:0px;
+				left:0px;				
+			}
+			#img3,#img4{perspective:1000px;}
+
+			/*-------调用动画---------*/
+			#img1:target{
+				display:block;			
+				-webkit-animation:img1 2s linear 0s 1;
+			}
+			#img2:target{
+				display:block;
+				-webkit-animation:img2 2s linear 0s 1;
+			}
+			#img3:target{
+				display:block;
+				-webkit-animation:img3 2s linear 0s 1;
+			}
+			#img4:target{
+				display:block;
+				-webkit-animation:img4 2s linear 0s 1;
+			}
+			/*-------声明动画---------*/
+			@-webkit-keyframes img1
+			{
+				from{transform:translateX(-100px);}
+				to{transform:translateX(0px);}
+			}
+			@-webkit-keyframes img2
+			{
+				from{transform:translateY(100px);}
+				to{transform:translateY(0px);}
+			}			
+			@-webkit-keyframes img3
+			{
+				from{transform:perspective(1200px) translateZ(-5000px);}
+				to{transform:perspective(1200px) translateZ(0px);}
+			}
+			@-webkit-keyframes img4
+			{
+				from{transform:perspective(1200px) translateZ(-5000px) rotate(0deg);}
+				to{transform:perspective(1200px) translateZ(0px) rotate(360deg);}
+			}
+
+			
+		</style>
+
+	</head>
+	<body>
+
+		<a href="#img1">img1</a>
+		<a href="#img2">img2</a>
+		<a href="#img3">img3</a>
+		<a href="#img4">img4</a>
+		<div id="d1">
+			<img id="img1" src="images/p001.jpg"/>
+			<img id="img2" src="images/p002.jpg"/>
+			<div id="img3">
+				<img src="images/p003.jpg"/>
+			</div>
+			<div id="img4">
+				<img src="images/p004.jpg"/>
+			</div>
+		</div>
+	</body>
+</html>

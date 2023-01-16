@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> new document </title>
+		<meta charset="utf-8"/>
+	
+		<style>
+			#clock{
+				width:300px;
+				height:300px;
+				border:5px solid #E95200;
+				border-radius:50%;
+				position:relative;
+			}
+			#minute{
+				width:6px;
+				height:100px;
+				border:1px solid #000;
+				background:#0770BE;
+				position:absolute;
+				top:60px;
+				left:140px;
+			}
+			#second{
+				height:120px;
+				border:2px solid #FDABEF;
+				position:absolute;
+				top:38px;
+				left:142px;				
+			}
+			/*声明动画*/
+			@-webkit-keyframes change{
+				from{transform:rotate(0deg);}
+				to{transform:rotate(360deg);}
+			}
+			/*使用动画*/
+			#second{
+				/*设置原点*/
+				transform-origin:5px bottom;
+				/*调用动画 设置无限次播放*/
+				-webkit-animation:change 60s linear 0s infinite; 
+			}
+			#minute{
+				/*设置原点*/
+				transform-origin:3px bottom;
+				/*调用动画 设置无限次播放*/
+				-webkit-animation:change 3600s linear 0s infinite; 
+			}
+		
+		</style>
+	</head>
+	<body>
+		<div id="clock">
+			<div id="minute"></div>
+			<div id="second"></div>
+		</div>
+	</body>
+</html>
